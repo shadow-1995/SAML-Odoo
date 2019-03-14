@@ -1,0 +1,66 @@
+<odoo>
+  <data>
+      <record id="ticket.system.tree" model="ir.ui.view">
+          <field name="name">Ticket System Tree View</field>
+          <field name="model">ticket_system.ticket_system</field>
+          <field name="arch" type="xml">
+              <tree string="All Tickets">
+                  <field name = 'name'/>
+                  <field name = 'customer_id'/>
+                  <field name = 'assigned_to'/>
+                  <field name = 'stage'/>
+              </tree>
+          </field>          
+      </record>
+      
+      <record id="view_student_form" model="ir.ui.view">
+            <field name="name">Ticket System Form View</field>
+            <field name="model">ticket_system.ticket_system</field>
+            <field name="arch" type="xml">
+                <form string="All Tickets">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <table>
+                                    <tr>
+                                        <td style="padding-right:10px;"><field name="name" required="1" placeholder="Subject...." /></td>
+                                    </tr>
+                                </table>
+                            </h1>
+                        </div>
+                        <notebook colspan="4">
+                            <page name="personal_information">
+                                <group col="4" colspan="4"
+                                    name="personal_detail">
+                                    <field name="helpdesk_team" />
+                                    <field name="assigned_to" />
+                                    <field name="priority" />
+                                </group>
+                                <group>
+                                    <field name="customer_id"/>
+                                    <field name="customer_name"/>
+                                    <field name="customer_email"/>
+                                    <field name="ticket_type"/>
+                                    <field name="ticket_tag"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+         <record id="ticket_system.all_ticket_action" model="ir.actions.act_window">
+             <field name="name">ticket.system.action</field>
+             <field name="res_model">ticket_system.ticket_system</field>
+             <field name="view_type">form</field>
+             <field name="view_mode">tree,form</field>
+             <field name="domain">[]</field><field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create new ticket</p>
+             </field>
+          </record>
+        <!-- Top menu item -->
+        <menuitem name="Ticket System" id="ticket_system.menu_root"/>
+        <!-- menu categories -->
+        <menuitem name="All Tickets" id="ticket_system.menu_1" parent="ticket_system.menu_root" action="ticket_system.all_ticket_action"/>
+  </data>
+</odoo>
