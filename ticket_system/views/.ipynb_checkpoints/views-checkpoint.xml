@@ -1,6 +1,6 @@
 <odoo>
   <data>
-      <record id="ticket.system.tree" model="ir.ui.view">
+      <record id="ticket_system_tree" model="ir.ui.view">
           <field name="name">Ticket System Tree View</field>
           <field name="model">ticket_system.ticket_system</field>
           <field name="arch" type="xml">
