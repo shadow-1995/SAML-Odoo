@@ -8,7 +8,7 @@
                   <field name = 'name'/>
                   <field name = 'customer_id'/>
                   <field name = 'assigned_to'/>
-                  <field name = 'stage'/>
+                  <!--field name = 'stage'/-->
               </tree>
           </field>          
       </record>
@@ -18,7 +18,15 @@
             <field name="model">ticket_system.ticket_system</field>
             <field name="arch" type="xml">
                 <form string="All Tickets">
+                    <header>
+                        <button name="assign_ticket_to_self" string="Assing To Me" type="object" class="oe_highlight"/>
+                    </header>
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active_button" widget="boolean_button" options='{"terminology": "archive"}'/>
+                            </button>
+                        </div>
                         <div class="oe_title">
                             <h1>
                                 <table>
@@ -28,29 +36,23 @@
                                 </table>
                             </h1>
                         </div>
-                        <notebook colspan="4">
-                            <page name="personal_information">
-                                <group col="4" colspan="4"
-                                    name="personal_detail">
-                                    <field name="helpdesk_team" />
-                                    <field name="assigned_to" />
-                                    <field name="priority" />
-                                </group>
-                                <group>
-                                    <field name="customer_id"/>
-                                    <field name="customer_name"/>
-                                    <field name="customer_email"/>
-                                    <field name="ticket_type"/>
-                                    <field name="ticket_tag"/>
-                                </group>
-                            </page>
-                        </notebook>
+                            <group col="4" colspan="4"
+                                name="personal_detail">
+                                <field name="helpdesk_team" />
+                                <field name="assigned_to" />
+                                <field name="priority" />
+                                <field name="customer_id"/>
+                                <field name="customer_name"/>
+                                <field name="customer_email"/>
+                                <field name="ticket_type"/>
+                                <field name="ticket_tag"/>
+                            </group>
                     </sheet>
                 </form>
             </field>
         </record>
          <record id="ticket_system.all_ticket_action" model="ir.actions.act_window">
-             <field name="name">ticket.system.action</field>
+             <field name="name">All Tickets</field>
              <field name="res_model">ticket_system.ticket_system</field>
              <field name="view_type">form</field>
              <field name="view_mode">tree,form</field>
@@ -62,5 +64,7 @@
         <menuitem name="Ticket System" id="ticket_system.menu_root"/>
         <!-- menu categories -->
         <menuitem name="All Tickets" id="ticket_system.menu_1" parent="ticket_system.menu_root" action="ticket_system.all_ticket_action"/>
+         <menuitem name="Configration" id="ticket_system.configration" parent="ticket_system.menu_root"/>
+      
   </data>
 </odoo>
