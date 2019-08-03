@@ -4,9 +4,8 @@
 
     'summary': """This module will add a record to store student details""",
 
-    'description': """
-        This module will add a record to store student details
-        
+    'description': """ 
+    
     """,
 
     'author': "My Company",
@@ -25,6 +24,11 @@
     'data': [
         'security/ir.model.access.csv',
         'views/views.xml',
+        'views/view1.xml',
+        'views/shift1.xml',
+        'views/teacher.xml',
+        'views/subject.xml',
+        'views/detail.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode

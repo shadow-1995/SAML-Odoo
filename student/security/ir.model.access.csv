@@ -1,2 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_student_student,student.student,model_student_student,,1,1,1,0
+access_student_class,student.class,model_student_class,,1,1,1,0
+access_student_shift,student.shift,model_student_shift,,1,1,1,0
+access_student_teacher,student.teacher,model_student_teacher,,1,1,1,0
+access_student_subject,student.subject,model_student_subject,,1,1,1,0
+access_student_detail,student.detail,model_student_detail,,1,1,1,0

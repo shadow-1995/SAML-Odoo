@@ -5,13 +5,17 @@
             <field name="model">student.student</field>
             <field name="arch" type="xml">
                 <tree string="Student">
-                    <field name="name" />
+                    <field name="admission_number" />
+                    <field name="first_name" />
                     <field name="middle_name" />
                     <field name="last_name" />
+                    <field name="student_father_name" />
+                    <field name="student_mother_name" />
                     <field name="student_gender" />
                     <field name="student_age" />
                     <field name="student_dob" />
-                    <field name="student_blood_group" />
+                    
+                    
                 </tree>
             </field>
         </record>
@@ -23,28 +27,37 @@
                 <form string="Student">
                     <sheet>
                         <field name="photo" widget="image" class="oe_left oe_avatar" />
-                        <div class="oe_title">
-                            <h1>
-                                <table>
-                                    <tr>
-                                        <td style="padding-right:10px;"><field name="name" required="1" placeholder="First Name" /></td>
-                                        <td style="padding-right:10px;"><field name="middle_name" placeholder="Middle Name" /></td>
-                                        <td style="padding-right:10px;"><field name="last_name" placeholder="Last Name" /></td>
-                                    </tr>
-                                </table>
-                            </h1>
-                        </div>
+                    
                         <notebook colspan="4">
-                            <page name="personal_information"
-                                string="Personal Information">
-                                <group col="4" colspan="4"
-                                    name="personal_detail">
-                                    <field name="student_gender" />
+                            <page name="acedmic_detail" string="Acedmic Details">
+                                <group col="4" colspan="4" name="acedmic_detail">
+                                    <field name="acedmic_year" />
+                                    <field name="admission_number" />
+                                    <field name="admission_date" />
+                                    <field name="first_name" />
+                                    <field name="middle_name" />
+                                    <field name="last_name" />
                                     <field name="student_age" />
                                     <field name="student_dob" />
                                     <field name="student_gender" />
                                     <field name="student_blood_group" />
                                     <field name="nationality" />
+                                    <field name="student_class" />
+                                    <field name="student_shift" />
+                                </group>
+                             </page>
+                           <page name="personal_detail" string="Personal Detail">
+                                <group col="4" colspan="4" name="personal_details">
+                                    <field name="student_father_name" />
+                                    <field name="student_mother_name" />
+                                    <field name="student_houseno" />
+                                    <field name="student_streetno" />
+                                    <field name="student_locality" />
+                                    <field name="student_city" />
+                                    <field name="student_pincode" />
+                                    <field name="student_state" />
+                                    <field name="contact_number" />
+                                    <field name="alternate_contact_number" />
                                 </group>
                             </page>
                         </notebook>
