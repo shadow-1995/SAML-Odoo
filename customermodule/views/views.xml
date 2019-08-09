@@ -1,0 +1,65 @@
+<odoo>
+  <data>
+        <record id="view_customer_tree" model="ir.ui.view">
+            <field name="name">customermodule.customer.tree</field>
+            <field name="model">customermodule.customer</field>
+            <field name="arch" type="xml">
+                <tree string="Customer">
+                    <field name="name" />
+                    <field name="last_name" />
+                    <field name="address" />
+                    
+                </tree>
+            </field>
+        </record>
+      <record id="view_customer_form" model="ir.ui.view">
+            <field name="name">customermodule.customer.form</field>
+            <field name="model">customermodule.customer</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="Customer">
+                    
+                        <notebook colspan="4">
+                            <page name="customer_detail" string="Customer Details">
+                                <group col="4" colspan="4" name="customer_detail">
+                                    <field name="name" />                                    
+                                    <field name="last_name" />
+                                    <group>
+                                        <field name="address" />
+                                        <div class="o_address_format">
+                                            <field name="street" placeholder="Street.." class="o_address_format" />
+                                            <field name="street2" placeholder="Street 2.." class="o_address_format" />
+                                            <field name="city" placeholder="City" class="o_address_format" />
+                                            <field name="state" placeholder="State" class="o_address_format" />
+                                            <field name="zip" placeholder="ZIP" class="o_address_format" />
+                                        </div>
+                                    </group>
+                                    <group>
+                                        <field name="mobile" />
+                                        <field name="email" />
+                                        <field name="pan" />
+                                        <field name="aadhar" />
+                                    </group>
+                              
+                                </group>
+                             </page>                
+                        </notebook>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_view_customer">
+            <field name="name">Customer</field>
+            <field name="res_model">customermodule.customer</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create new customer
+                </p>
+            </field>
+        </record>
+        <menuitem id="menu_school" name="School"/>
+        <menuitem id="school_customer" name="Customer" parent="menu_school"
+                  action="action_view_customer"/>
+  </data>
+</odoo>

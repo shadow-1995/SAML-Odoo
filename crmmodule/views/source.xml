@@ -1,0 +1,19 @@
+<odoo>
+    <record id="_crm_view_form_source" model="ir.ui.view">
+        <field name="name">crm.inherit.view</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_oppor" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_deadline']" position="after">
+                <field name="source"/>
+                <field name="email" attrs="{'invisible':[('source','!=','Email')], 'required': [('source', '=', 'Email')]}" />
+                <field name="telephone" attrs="{'invisible': [('source', '!=', 'Telephone')], 'required': [('source', '=', 'Telephone')]}" />
+                <field name="website" attrs="{'invisible': [('source', '!=', 'Website')], 'required': [('source', '=', 'Website')]}" />
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="address" domain="[('user_id', '=', 'type')]" />
+                
+            </xpath>
+        </field>
+    </record>
+</odoo>
